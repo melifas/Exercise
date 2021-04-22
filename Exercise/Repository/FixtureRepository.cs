@@ -8,7 +8,7 @@ namespace Exercise.Repository
 {
     public class FixtureRepository : IFixtureRepository
     {
-        private List<Fixture> _fixtureList;
+        private readonly List<Fixture> _fixtureList;
 
         public FixtureRepository()
         {
@@ -23,6 +23,17 @@ namespace Exercise.Repository
         public IEnumerable<Fixture> GetAllFixtures()
         {
             return this._fixtureList;
+        }
+
+        public IEnumerable<Fixture> GetSpecificFixtures(int leagueId, string date)
+        {
+            var test = this._fixtureList.Where(f => f.LeagueId == leagueId && f.Date.ToString("d") == date);
+
+            if (test.Count()==0)
+            {
+                return null;
+            }
+            return test;
         }
 
         public Fixture GetFixture(int Id)

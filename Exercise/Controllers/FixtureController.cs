@@ -4,10 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Exercise.Models;
 
 namespace Exercise.Controllers
 {
-    public class FixtureController : Controller
+    [ApiController]
+    public class FixtureController : ControllerBase
     {
         private readonly IFixtureRepository _fixtureRepository;
 
@@ -17,11 +19,26 @@ namespace Exercise.Controllers
         }
 
         
-
+        [HttpGet("Fixtures/getFixtures")]
         public IActionResult GetFixtures()
         {
             var fixtures = _fixtureRepository.GetAllFixtures();
+            return new JsonResult(fixtures);
 
         }
+
+        [HttpPost("Fixtures/getSpecificFixtures")]
+        public IActionResult GetSpecificFixtures([FromBody] Fixture fixture )
+        {
+            var specificFixtures = _fixtureRepository.GetSpecificFixtures(fixture.LeagueId,fixture.Date.ToString("d"));
+
+            if (specificFixtures == null)
+            {
+                return NotFound();
+            }
+            return new JsonResult(specificFixtures);
+
+        }
+
     }
 }

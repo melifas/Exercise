@@ -10,5 +10,6 @@ namespace Exercise.Repository
     {
         IEnumerable<Fixture> GetAllFixtures();
         Fixture GetFixture(int Id);
+        IEnumerable<Fixture> GetSpecificFixtures(int leagueId, string date);
     }
 }
