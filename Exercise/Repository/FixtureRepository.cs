@@ -17,6 +17,7 @@ namespace Exercise.Repository
                 new Fixture(){Id = 1, LeagueId = 1, Date = new DateTime(2021,11,12), HomeTeam = "Olympiakos", AwayTeam = "Panathinaikos" },
                 new Fixture(){Id = 2, LeagueId = 2, Date = new DateTime(2021,12,14), HomeTeam = "Everton", AwayTeam = "Fulham" },
                 new Fixture(){Id = 3, LeagueId = 3, Date = new DateTime(2021,12,16), HomeTeam = "Burnlay", AwayTeam = "Arsenal" },
+                new Fixture(){Id = 4, LeagueId = 1, Date = new DateTime(2021,11,12), HomeTeam = "Totenam", AwayTeam = "Napoli" },
             };
         }
 

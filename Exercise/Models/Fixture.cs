@@ -8,11 +8,12 @@ namespace Exercise.Models
 {
     public class Fixture
     {
+        [Key]
         public int Id { get; set; }
         public int LeagueId { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
 
         public string HomeTeam { get; set; }

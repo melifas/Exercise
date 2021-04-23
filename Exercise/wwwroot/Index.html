@@ -19,8 +19,11 @@
                     data: JSON.stringify(fixture),
                     success: function (data, textStatus, xhr) {
                         console.log(data);
-                        $.each(data, function (inedx, val) {
-                            $("#firstresult").html(val.homeTeam);
+                        debugger 
+                        $.each(data, function (index, val) {
+                            $("#hometeam").html(val.homeTeam);
+                            $("#awayteam").html(val.awayTeam);
+
                         });
                     },
                     error: function (xhr, textStatus, errorThrown) {
@@ -41,7 +44,7 @@
         <option value="3">English Premier League</option>
     </select>
 
-    <input type="date" id="date" name="date" value="date" />
+    <input type="date" id="date" placeholder="dd-mm-yyyy" name="date" value="date" />
 
 
     <input id="Search" type="button" value="Search Fixtures" />
@@ -49,6 +52,8 @@
 
 
 
-    <h1 class="no-margins" id="firstresult"></h1>
+<h1 class="no-margins" id="hometeam"></h1>
+<h1 class="no-margins" id="awayteam"></h1>
+
 </body>
 </html>
