@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <script src="/lib/jquery/jquery.js"></script>
     <title>Fixtures Main</title>
+    <link href="lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <script type="text/javascript">
         $(document).ready(function () {
             $('#Search').click(function () {
@@ -17,13 +18,12 @@
                     dataType: 'json',
                     contentType: "application/json; charset=utf-8",
                     data: JSON.stringify(fixture),
-                    success: function (data, textStatus, xhr) {
-                        console.log(data);
-                        debugger 
-                        $.each(data, function (index, val) {
+                    success: function (data) {
+                       /* console.log(data);*/
+                         //debugger 
+                        $.each(data, function (index,val) {
                             $("#hometeam").html(val.homeTeam);
                             $("#awayteam").html(val.awayTeam);
-
                         });
                     },
                     error: function (xhr, textStatus, errorThrown) {
@@ -36,24 +36,38 @@
 </head>
 <body>
 
-    <label for="leagues">Choose a league:</label>
+    <div class="container">
+        <div class="form-group">
+            <label class="label label-default" for="leagues">Choose a league:</label>
+        </div>
 
-    <select name="league" id="league">
-        <option value="1">Super League</option>
-        <option value="2">Premier League</option>
-        <option value="3">English Premier League</option>
-    </select>
+        <div class="form-group">
+            <select class="form-control" name="league" id="league">
+                <option value="1">Super League</option>
+                <option value="2">Premier League</option>
+                <option value="3">English Premier League</option>
+            </select>
+        </div>
 
-    <input type="date" id="date" placeholder="dd-mm-yyyy" name="date" value="date" />
+        <div class="form-group">
+            <input class="form-control" type="date" id="date" placeholder="dd-mm-yyyy" name="date" value="date" />
+        </div>
+        <button id="Search" type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
 
 
-    <input id="Search" type="button" value="Search Fixtures" />
 
 
 
+    <div class="container">
+        <h1 class="no-margins" id="hometeam"></h1>
+        <h1 class="no-margins" id="awayteam"></h1>
 
-<h1 class="no-margins" id="hometeam"></h1>
-<h1 class="no-margins" id="awayteam"></h1>
+    </div>
+
+
+
 
 </body>
 </html>
