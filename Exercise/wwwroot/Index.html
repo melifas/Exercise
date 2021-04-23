@@ -19,6 +19,9 @@
                     data: JSON.stringify(fixture),
                     success: function (data, textStatus, xhr) {
                         console.log(data);
+                        $.each(data, function (inedx, val) {
+                            $("#firstresult").html(val.homeTeam);
+                        });
                     },
                     error: function (xhr, textStatus, errorThrown) {
                         console.log('Error in Operation');
@@ -42,5 +45,10 @@
 
 
     <input id="Search" type="button" value="Search Fixtures" />
+
+
+
+
+    <h1 class="no-margins" id="firstresult"></h1>
 </body>
 </html>
